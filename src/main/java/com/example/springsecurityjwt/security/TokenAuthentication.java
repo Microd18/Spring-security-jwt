@@ -16,6 +16,7 @@ public class TokenAuthentication implements Authentication {
     private boolean authenticated;
     private String username;
     private RoleType role;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singleton(role);

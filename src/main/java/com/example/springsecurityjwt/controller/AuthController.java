@@ -1,9 +1,9 @@
 package com.example.springsecurityjwt.controller;
 
-import com.example.springsecurityjwt.dto.TokenRequest;
-import com.example.springsecurityjwt.dto.TokenResponse;
 import com.example.springsecurityjwt.dto.RefreshTokenRequest;
 import com.example.springsecurityjwt.dto.Register;
+import com.example.springsecurityjwt.dto.TokenRequest;
+import com.example.springsecurityjwt.dto.TokenResponse;
 import com.example.springsecurityjwt.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -20,8 +20,8 @@ public class AuthController {
 
     private final AuthService authService;
 
-    @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody Register register) {
+    @PostMapping("/registration")
+    public ResponseEntity<?> registration(@RequestBody Register register) {
         authService.register(register);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
@@ -32,7 +32,7 @@ public class AuthController {
         return ResponseEntity.ok(tokenResponse);
     }
 
-    @PostMapping("/token")
+    @PostMapping("/access")
     public ResponseEntity<TokenResponse> getNewAccessToken(@RequestBody RefreshTokenRequest request) {
         final TokenResponse tokenResponse = authService.getAccessToken(request.refreshToken());
         return ResponseEntity.ok(tokenResponse);

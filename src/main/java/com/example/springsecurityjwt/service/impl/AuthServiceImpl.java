@@ -1,8 +1,8 @@
 package com.example.springsecurityjwt.service.impl;
 
+import com.example.springsecurityjwt.dto.Register;
 import com.example.springsecurityjwt.dto.TokenRequest;
 import com.example.springsecurityjwt.dto.TokenResponse;
-import com.example.springsecurityjwt.dto.Register;
 import com.example.springsecurityjwt.dto.User;
 import com.example.springsecurityjwt.exception.InvalidCredentialsException;
 import com.example.springsecurityjwt.exception.InvalidTokenException;
@@ -39,9 +39,10 @@ public class AuthServiceImpl implements AuthService {
 
         if (userRepository.existsByEmail(register.email())) {
             throw new UserAlreadyExistsException();
+        } else {
+            userService.createUser(register);
+            log.info("Пользователь успешно зарегистрирован.");
         }
-        userService.createUser(register);
-        log.info("Пользователь успешно зарегистрирован.");
     }
 
     @Override

@@ -13,27 +13,28 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @Slf4j
 @RestControllerAdvice
 public class ExceptionHandlerClass {
+
     @ExceptionHandler(InvalidCredentialsException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    public String invalidCredentialsException(InvalidCredentialsException e){
-        return "Неверный логин или пароль";
+    public ErrorResponse handleInvalidCredentialsException(InvalidCredentialsException e) {
+        return new ErrorResponse(HttpStatus.UNAUTHORIZED.value(), "Неверный логин или пароль");
     }
 
     @ExceptionHandler(InvalidTokenException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    public String invalidTokenException(InvalidTokenException e){
-        return "Недействительный токен";
+    public ErrorResponse handleInvalidTokenException(InvalidTokenException e) {
+        return new ErrorResponse(HttpStatus.UNAUTHORIZED.value(), "Недействительный токен");
     }
 
     @ExceptionHandler(UserAlreadyExistsException.class)
     @ResponseStatus(HttpStatus.CONFLICT)
-    public String userAlreadyExistsException(UserAlreadyExistsException e){
-        return "Такой пользователь уже зарегистрирован";
+    public ErrorResponse handleUserAlreadyExistsException(UserAlreadyExistsException e) {
+        return new ErrorResponse(HttpStatus.CONFLICT.value(), "Такой пользователь уже зарегистрирован");
     }
 
     @ExceptionHandler(UserNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public String userNotFoundException(UserNotFoundException e){
-        return "Пользователь не найден";
+    public ErrorResponse handleUserNotFoundException(UserNotFoundException e) {
+        return new ErrorResponse(HttpStatus.NOT_FOUND.value(), "Пользователь не найден");
     }
 }

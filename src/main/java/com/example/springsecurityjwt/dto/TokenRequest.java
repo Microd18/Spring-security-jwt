@@ -4,7 +4,6 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
 
 public record TokenRequest(
-
         @Size(min = 4, max = 32)
         @Email
         String email,

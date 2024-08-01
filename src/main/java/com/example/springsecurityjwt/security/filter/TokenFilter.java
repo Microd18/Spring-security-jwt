@@ -28,6 +28,7 @@ public class TokenFilter extends GenericFilterBean {
 
     private final TokenProvider tokenProvider;
     private final TokenUtils tokenUtils;
+
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 

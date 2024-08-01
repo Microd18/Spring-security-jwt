@@ -7,5 +7,6 @@ import com.example.springsecurityjwt.entity.UserEntity;
 public interface UserMapper {
 
     UserEntity toUserEntity(Register register);
+
     User toUser(UserEntity userEntity);
 }
