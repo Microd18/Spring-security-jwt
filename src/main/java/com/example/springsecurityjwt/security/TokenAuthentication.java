@@ -1,6 +1,6 @@
 package com.example.springsecurityjwt.security;
 
-import com.example.springsecurityjwt.entity.RoleType;
+import com.example.springsecurityjwt.enums.RoleType;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.Authentication;
@@ -11,7 +11,7 @@ import java.util.Collections;
 
 @Getter
 @Setter
-public class JWTAuthentication implements Authentication {
+public class TokenAuthentication implements Authentication {
 
     private boolean authenticated;
     private String username;

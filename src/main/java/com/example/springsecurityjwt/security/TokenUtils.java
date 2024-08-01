@@ -1,13 +1,13 @@
 package com.example.springsecurityjwt.security;
 
-import com.example.springsecurityjwt.entity.RoleType;
+import com.example.springsecurityjwt.enums.RoleType;
 import io.jsonwebtoken.Claims;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JWTUtils {
-    public JWTAuthentication generate(Claims claims) {
-        final JWTAuthentication tokenInfo = new JWTAuthentication();
+public class TokenUtils {
+    public TokenAuthentication generate(Claims claims) {
+        final TokenAuthentication tokenInfo = new TokenAuthentication();
         tokenInfo.setRole(getRole(claims));
         tokenInfo.setUsername(claims.getSubject());
         return tokenInfo;

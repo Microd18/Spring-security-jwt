@@ -1,7 +1,7 @@
 package com.example.springsecurityjwt.service;
 
-import com.example.springsecurityjwt.dto.JWTRequest;
-import com.example.springsecurityjwt.dto.JWTResponse;
+import com.example.springsecurityjwt.dto.TokenRequest;
+import com.example.springsecurityjwt.dto.TokenResponse;
 import com.example.springsecurityjwt.dto.Register;
 import lombok.NonNull;
 
@@ -9,9 +9,9 @@ public interface AuthService {
 
     void register(Register register);
 
-    JWTResponse login(@NonNull JWTRequest authenticationRequest);
+    TokenResponse login(@NonNull TokenRequest authenticationRequest);
 
-    JWTResponse getAccessToken(@NonNull String refreshToken);
+    TokenResponse getAccessToken(@NonNull String refreshToken);
 
-    JWTResponse refreshToken(@NonNull String refreshToken);
+    TokenResponse refreshToken(@NonNull String refreshToken);
 }

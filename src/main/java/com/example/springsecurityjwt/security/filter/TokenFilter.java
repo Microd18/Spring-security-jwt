@@ -1,8 +1,8 @@
 package com.example.springsecurityjwt.security.filter;
 
-import com.example.springsecurityjwt.security.JWTAuthentication;
-import com.example.springsecurityjwt.security.JWTProvider;
-import com.example.springsecurityjwt.security.JWTUtils;
+import com.example.springsecurityjwt.security.TokenAuthentication;
+import com.example.springsecurityjwt.security.TokenProvider;
+import com.example.springsecurityjwt.security.TokenUtils;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -21,20 +21,20 @@ import java.io.IOException;
 @Component
 @Slf4j
 @RequiredArgsConstructor
-public class JWTFilter extends GenericFilterBean {
+public class TokenFilter extends GenericFilterBean {
 
     private static final String AUTHORIZATION = "Authorization";
     private static final String BEARER = "Bearer ";
 
-    private final JWTProvider jwtProvider;
-    private final JWTUtils jwtUtils;
+    private final TokenProvider tokenProvider;
+    private final TokenUtils tokenUtils;
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
         final String token = getTokenFromRequest((HttpServletRequest) request);
-        if (token != null && jwtProvider.validateAccessToken(token)) {
-            final Claims claims = jwtProvider.getAccessClaims(token);
-            final JWTAuthentication jwtInfoToken = jwtUtils.generate(claims);
+        if (token != null && tokenProvider.validateAccessToken(token)) {
+            final Claims claims = tokenProvider.getAccessClaims(token);
+            final TokenAuthentication jwtInfoToken = tokenUtils.generate(claims);
             jwtInfoToken.setAuthenticated(true);
             SecurityContextHolder.getContext().setAuthentication(jwtInfoToken);
         }

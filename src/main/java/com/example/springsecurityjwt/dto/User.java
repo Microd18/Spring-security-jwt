@@ -1,6 +1,6 @@
 package com.example.springsecurityjwt.dto;
 
-import com.example.springsecurityjwt.entity.RoleType;
+import com.example.springsecurityjwt.enums.RoleType;
 
 public record User(
         String username,

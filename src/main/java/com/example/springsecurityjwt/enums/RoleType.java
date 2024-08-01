@@ -1,4 +1,4 @@
-package com.example.springsecurityjwt.entity;
+package com.example.springsecurityjwt.enums;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;

@@ -1,5 +1,6 @@
 package com.example.springsecurityjwt.entity;
 
+import com.example.springsecurityjwt.enums.RoleType;
 import jakarta.persistence.*;
 import lombok.*;
 

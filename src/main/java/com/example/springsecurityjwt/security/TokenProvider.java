@@ -19,13 +19,13 @@ import java.util.Date;
 
 @Component
 @Slf4j
-public class JWTProvider {
+public class TokenProvider {
 
     private final SecretKey jwtAccessSecret;
     private final SecretKey jwtRefreshSecret;
 
-    public JWTProvider(@Value("${jwt.secret.access}") String jwtAccessSecret,
-                       @Value("${jwt.secret.refresh}") String jwtRefreshSecret) {
+    public TokenProvider(@Value("${jwt.secret.access}") String jwtAccessSecret,
+                         @Value("${jwt.secret.refresh}") String jwtRefreshSecret) {
         this.jwtAccessSecret = Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtAccessSecret));
         this.jwtRefreshSecret = Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtRefreshSecret));
     }

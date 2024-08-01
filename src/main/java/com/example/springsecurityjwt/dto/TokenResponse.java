@@ -1,6 +1,6 @@
 package com.example.springsecurityjwt.dto;
 
-public record JWTResponse(
+public record TokenResponse(
         String accessToken,
         String refreshToken) {
 

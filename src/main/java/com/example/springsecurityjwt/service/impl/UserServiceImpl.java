@@ -25,9 +25,9 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void createUser(Register register) {
-        log.info("Create user method was invoked");
+        log.info("Вызов метода 'createUser'.");
         userRepository.save(userMapper.toUserEntity(register));
-        log.info("User was created successfully");
+        log.info("Пользователь успешно создан.");
     }
 
     @Override

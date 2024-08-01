@@ -1,6 +1,7 @@
 package com.example.springsecurityjwt.dto;
 
-import com.example.springsecurityjwt.entity.RoleType;
+import com.example.springsecurityjwt.enums.RoleType;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
 
 public record Register(
@@ -8,6 +9,7 @@ public record Register(
         String username,
 
         @Size(min = 4, max = 32)
+        @Email
         String email,
 
         @Size(min = 8, max = 16)

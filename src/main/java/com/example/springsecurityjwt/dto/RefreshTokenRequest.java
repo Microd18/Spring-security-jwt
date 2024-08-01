@@ -1,6 +1,6 @@
 package com.example.springsecurityjwt.dto;
 
-public record RefreshJWTRequest(
+public record RefreshTokenRequest(
         String refreshToken
 ) {
 }

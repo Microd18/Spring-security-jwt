@@ -1,8 +1,8 @@
 package com.example.springsecurityjwt.controller;
 
-import com.example.springsecurityjwt.dto.JWTRequest;
-import com.example.springsecurityjwt.dto.JWTResponse;
-import com.example.springsecurityjwt.dto.RefreshJWTRequest;
+import com.example.springsecurityjwt.dto.TokenRequest;
+import com.example.springsecurityjwt.dto.TokenResponse;
+import com.example.springsecurityjwt.dto.RefreshTokenRequest;
 import com.example.springsecurityjwt.dto.Register;
 import com.example.springsecurityjwt.service.AuthService;
 import lombok.RequiredArgsConstructor;
@@ -22,26 +22,25 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody Register register) {
-
         authService.register(register);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PostMapping("/login")
-    public ResponseEntity<JWTResponse> login(@RequestBody JWTRequest authRequest) {
-        final JWTResponse tokenResponse = authService.login(authRequest);
+    public ResponseEntity<TokenResponse> login(@RequestBody TokenRequest authRequest) {
+        final TokenResponse tokenResponse = authService.login(authRequest);
         return ResponseEntity.ok(tokenResponse);
     }
 
     @PostMapping("/token")
-    public ResponseEntity<JWTResponse> getNewAccessToken(@RequestBody RefreshJWTRequest request) {
-        final JWTResponse tokenResponse = authService.getAccessToken(request.refreshToken());
+    public ResponseEntity<TokenResponse> getNewAccessToken(@RequestBody RefreshTokenRequest request) {
+        final TokenResponse tokenResponse = authService.getAccessToken(request.refreshToken());
         return ResponseEntity.ok(tokenResponse);
     }
 
     @PostMapping("/refresh")
-    public ResponseEntity<JWTResponse> getNewRefreshToken(@RequestBody RefreshJWTRequest request) {
-        final JWTResponse tokenResponse = authService.refreshToken(request.refreshToken());
+    public ResponseEntity<TokenResponse> getNewRefreshToken(@RequestBody RefreshTokenRequest request) {
+        final TokenResponse tokenResponse = authService.refreshToken(request.refreshToken());
         return ResponseEntity.ok(tokenResponse);
     }
 }
