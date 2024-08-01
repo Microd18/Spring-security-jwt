@@ -13,6 +13,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+/**
+ * Конфигурация безопасности для приложения Spring Security.
+ * Настраивает цепочку фильтров безопасности, управление сессиями и шифрование паролей.
+ */
 @Configuration
 @EnableMethodSecurity
 @RequiredArgsConstructor

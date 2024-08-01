@@ -17,6 +17,9 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 
+/**
+ * Класс для генерации и валидации JWT токенов.
+ */
 @Component
 @Slf4j
 public class TokenProvider {

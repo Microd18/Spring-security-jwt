@@ -14,6 +14,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
+/**
+ * Реализация сервиса для управления пользователями.
+ * Обеспечивает создание нового пользователя и получение пользователя по его email.
+ */
 @Service
 @Slf4j
 @RequiredArgsConstructor

@@ -18,6 +18,10 @@ import org.springframework.web.filter.GenericFilterBean;
 
 import java.io.IOException;
 
+/**
+ * Фильтр для проверки JWT токенов в HTTP запросах.
+ * Проверяет наличие и валидность токена, извлекает информацию из токена и устанавливает аутентификацию в SecurityContext.
+ */
 @Component
 @Slf4j
 @RequiredArgsConstructor

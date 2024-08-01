@@ -9,6 +9,10 @@ import org.springframework.security.core.GrantedAuthority;
 import java.util.Collection;
 import java.util.Collections;
 
+/**
+ * Реализация интерфейса {@link Authentication} для работы с JWT токенами.
+ * Содержит информацию о пользователе и его роли.
+ */
 @Getter
 @Setter
 public class TokenAuthentication implements Authentication {

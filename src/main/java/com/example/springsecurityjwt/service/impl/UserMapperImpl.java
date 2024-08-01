@@ -8,6 +8,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+/**
+ * Реализация маппера для преобразования между {@link Register}, {@link User} и {@link UserEntity}.
+ * Отвечает за конвертацию данных регистрационного запроса в сущность пользователя и
+ * преобразование сущности пользователя в объект данных пользователя.
+ */
 @Component
 @RequiredArgsConstructor
 public class UserMapperImpl implements UserMapper {

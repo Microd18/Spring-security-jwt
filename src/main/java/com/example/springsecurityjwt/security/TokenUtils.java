@@ -4,6 +4,9 @@ import com.example.springsecurityjwt.enums.RoleType;
 import io.jsonwebtoken.Claims;
 import org.springframework.stereotype.Component;
 
+/**
+ * Утилитарный класс для работы с токенами, включая извлечение информации из токенов.
+ */
 @Component
 public class TokenUtils {
     public TokenAuthentication generate(Claims claims) {

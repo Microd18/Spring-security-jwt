@@ -22,6 +22,12 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Реализация сервиса аутентификации и авторизации.
+ * <p>
+ * Этот сервис обрабатывает регистрацию пользователей, вход в систему и работу с 'access' и 'refresh' токенами.
+ * </p>
+ */
 @Service
 @RequiredArgsConstructor
 @Slf4j

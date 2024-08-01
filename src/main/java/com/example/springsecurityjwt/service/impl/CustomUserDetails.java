@@ -8,6 +8,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.Collections;
 
+/**
+ * Реализация {@link UserDetails} для предоставления информации о пользователе
+ * для целей аутентификации и авторизации в Spring Security.
+ */
 public class CustomUserDetails implements UserDetails {
 
     private final UserEntity user;
